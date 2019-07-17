@@ -213,7 +213,7 @@ def pascal(n, a = []):
     else:
         return a[0] + ((factorial(n)/(factorial(pascal(n-1, a[1:]))*factorial(n-pascal(n-1, a[1:])))))
 
-  """  a = []
+""" a = []
     b = []
     for val in range(1,n+1,1):
         for x in range(0,val+2,1):

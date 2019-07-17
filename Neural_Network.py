@@ -47,7 +47,7 @@ class NeuralNet(object):
 
 
     def forward(self, h0):
-        if np.shape(h0)[0] != self.num_input:
+        if np.shape(h0)[0] != np.shape(self.w1)[0]:
             raise Exception('wrong amount of nodes inputted')
 
         self.h1[:-1] = np.multiply(h0, self.w1)
@@ -63,6 +63,3 @@ xor = NeuralNet(3,3,1,'step')
 
 
 print('W1 is \n \n {} \n \n W2 is \n \n {} \n \n The 1st bias is {} \n \n The 2nd bias is {}'.format(xor.w1, xor.w2, xor.b1, xor.b2))
-
-
-print('\n \n ')

@@ -32,10 +32,8 @@ class NeuralNet(object):
                     stepped_a[x_dim] = 0
                 elif a[x_dim] > 0:
                     stepped_a[x_dim] = 1
-        else:
-            raise Exception('input is not a vector')
-
-        return stepped_a
+            return stepped_a
+        raise Exception('input is not a vector')
 
 
     def sigmoid(self, a):
@@ -44,13 +42,14 @@ class NeuralNet(object):
         if a.ndim == 1:
             for x_dim in range(np.shape(a)[0]):
                 sigmoid_a = 1/(1+(np.exp(a[x_dim])))
-        else:
-            raise Exception('input is not a vector')
-
-        return sigmoid_a
+            return sigmoid_a
+        raise Exception('input is not a vector')
 
 
-    def compute(self, h0):
+    def forward(self, h0):
+        if np.shape(h0)[0] != np.shape(self.w1)[0]:
+            raise Exception('wrong amount of nodes inputted')
+
         self.h1[:-1] = np.multiply(h0, self.w1)
         self.h1[-1:] = self.b1
 

@@ -1,0 +1,26 @@
+# Lloyd Cloer
+# code adapted from: https://stackoverflow.com/questions/32946436/read-img-medical-image-without-header-in-python
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+input_filename = "comb.img"
+shape = (512, 512)
+d_type = np.dtype(np.uint8)
+
+with open(input_filename, 'r') as f:
+    data = np.fromfile(f, dtype = d_type)
+a = data[512:]
+image = a.reshape(shape)
+
+threshold_image = np.zeros(np.shape(image))
+
+for x_coords in range(np.shape(image)[1]):
+    for y_coords in range(np.shape(image)[0]):
+        if image[y_coords][x_coords] > 100:
+            threshold_image[y_coords][x_coords] = 255
+        elif image[y_coords][x_coords] <= 100:
+            image[y_coords][x_coords] = 0
+
+plt.imshow(threshold_image)
+plt.show()

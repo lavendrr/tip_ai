@@ -2,15 +2,7 @@ import numpy as np
 import read_image
 img = read_image.image
 
-"""def pixels:
-    for i in img:
-        for j in i:
-                if i <= 100:
-                    p += i
-                else:
-                    continue
-
-
+"""
 def objects:
     for i in range(p):
         if i != range(p)[-1]:

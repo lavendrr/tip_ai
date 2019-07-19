@@ -1,10 +1,8 @@
 import numpy as np
-from read_image import *
-
+import read_image
 img = read_image.image
-p = []
 
-def pixels:
+"""def pixels:
     for i in img:
         for j in i:
                 if i <= 100:
@@ -12,12 +10,24 @@ def pixels:
                 else:
                     continue
 
-class PixelFunct(object):
-    def __init__(self)
-        for i in range(p):
-            if i != range(p)[-1]:
-                if p[i] == p[i+1]
+
+def objects:
+    for i in range(p):
+        if i != range(p)[-1]:
+            if p[i] == p[i+1]
                 #...
             else:
                 if p[i] == p[0]:
                     #...
+                    """
+
+def pixels():
+    p = []
+    pixel_array = np.array(p)
+    for y in range(np.shape(img)[1]):
+        for x in range(np.shape(img)[0]):
+            if img[y][x] == 0:
+                p.append((x,y))
+    return p
+
+print(pixels())

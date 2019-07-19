@@ -13,14 +13,14 @@ with open(input_filename, 'r') as f:
 a = data[512:]
 image = a.reshape(shape)
 
-threshold_image = np.zeros(np.shape(image))
 
+threshold_image = np.zeros(np.shape(image))
 for x_coords in range(np.shape(image)[1]):
     for y_coords in range(np.shape(image)[0]):
         if image[y_coords][x_coords] > 100:
             threshold_image[y_coords][x_coords] = 255
         elif image[y_coords][x_coords] <= 100:
-            image[y_coords][x_coords] = 0
+            threshold_image[y_coords][x_coords] = 0
 
 plt.imshow(threshold_image)
 plt.show()

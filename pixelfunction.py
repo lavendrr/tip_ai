@@ -23,9 +23,10 @@ def objects:
 
 def pixels():
     p = []
+    pixel_array = np.array(p)
     for y in range(np.shape(img)[1]):
         for x in range(np.shape(img)[0]):
-            if img[y][x] == 0:
+            if img[y][x] <=100:
                 p.append((x,y))
     return p
 
